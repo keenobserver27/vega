@@ -9,9 +9,10 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using vega.Persistence;
+using vega.Core;
 using AutoMapper;
 using vega.Mapping;
+using vega.Persistence;
 
 namespace WebApplicationBasic
 {
@@ -33,6 +34,7 @@ namespace WebApplicationBasic
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IVehicleRepository, VehicleRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             
             services.AddAutoMapper(typeof(Startup));
 
